@@ -1,0 +1,14 @@
+# Dependency & OS files
+.DS_Store
+Thumbs.db
+node_modules/
+
+# Review / Audit workspace
+portfolio-review/
+
+# IDE / Editor files
+.vscode/
+.idea/
+
+# Logs
+*.log

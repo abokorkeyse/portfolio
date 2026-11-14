@@ -1,0 +1,134 @@
+{
+  "name": "Abokor Keyse Portfolio AI Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "portfolio-chat",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "webhook-portfolio-chat",
+      "name": "Portfolio Chat Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.message }}",
+        "options": {
+          "systemMessage": "Waxaad tahay AI Assistant-ka rasmiga ah ee Abokor Keyse (Full Stack Developer & AI Automation Specialist).\n\n### SHARCIGA UGU MUHIIMSAN (STRICT BREVITY RULES):\n- JAWAABIHAGU HA NOQDAAN KUWO AAD U KOOBAN (MAXIMUM 2 ILAA 4 LINIYO AMA 2-3 BULLET POINTS GAABAN).\n- WAA IN JAWAABTU TAHAY TOOS, CAD, OO BILAA QORAAL DHEER AH SI SI FUDUD CHAT POPUP-KA UGU AKHRISAN KARO.\n- HADDII QOFKU WAX KA WEYDIIYO MASHROOC, ERP, CRM AMA ADEEG, U SHEEG HAWSHIISA OOGADA SARE (SUMMARY GAABAN), KA DIBNA U SHEEG INUU WHATSAPP KALA XIRIIRAYO FAAHFAAHINTA BUUXDA.\n\n### Faahfaahinta Abokor Keyse:\n- **Magaca:** Abokor Keyse (Full Stack & AI Specialist)\n- **Goobta:** Hargeisa, Somaliland\n- **Xirfadaha:** React, Next.js, Node.js, PHP, Python, Docker, n8n Automation, AI Agents, Mobile Apps.\n- **Mashaariicda Waaweyn:**\n  1. School Management System (Next.js & Docker, WhatsApp Bot for Exams, Fees & Attendance (Xaadirka). Live Demo: https://school.abokor.shop/login)\n  2. AgentWorks AI - AI Automation Platform\n  3. BloodSave - Somaliland Blood Donation Platform\n  4. SO! Gasho ISP CRM - Billing & ISP Management\n  5. Karti POS - Point of Sale & Inventory\n  6. HMS - Hospital Management System\n- **Adeegyada:** Web Apps, Custom ERP/CRM, n8n AI Automations, Mobile Apps.\n- **Xiriirka:** Email: abokorkeyse@gmail.com | WhatsApp: +252 633 009 299 (https://wa.me/252633009299)\n\n### Ujeeddada Jawaabta:\n1. Ku jawaab luuqada uu adeegsaduhu ku qoro (Somali ama English).\n2. Qor jawaab kooban, toos ah, oo soo jiidasho leh (2-3 weedhood oo kaliya).\n3. Ku dhamee dhiirrigelin kooban oo ah inuu WhatsApp (+252 633 009 299) ama Email nagala soo xiriiro si uu faahfaahinta buuxda u hesho."
+        }
+      },
+      "onError": "continueRegularOutput",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        240,
+        0
+      ],
+      "id": "ai-agent-node",
+      "name": "Portfolio AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        180,
+        220
+      ],
+      "id": "openai-chat-model",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "sessionKey": "={{ $json.body && $json.body.sessionId ? $json.body.sessionId : 'default-session' }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        340,
+        220
+      ],
+      "id": "chat-memory",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "respondWith": "firstIncomingItem",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        500,
+        0
+      ],
+      "id": "respond-to-webhook",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "connections": {
+    "Portfolio Chat Webhook": {
+      "main": [
+        [
+          {
+            "node": "Portfolio AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Portfolio AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Portfolio AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Portfolio AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

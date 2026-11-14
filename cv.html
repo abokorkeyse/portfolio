@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abokor Keyse — Curriculum Vitae | Abokor Tech</title>
+  <meta name="description" content="Curriculum Vitae of Abokor Keyse — Full Stack Developer, Cloud Solutions Specialist, and UI/UX Designer with proven enterprise and public-impact experience." />
+  <meta name="theme-color" content="#1A1A1A" />
+  <link rel="canonical" href="https://abokor.shop/cv.html" />
+
+  <!-- Open Graph & Social -->
+  <meta property="og:title" content="Abokor Keyse — Curriculum Vitae | Abokor Tech" />
+  <meta property="og:description" content="Curriculum Vitae of Abokor Keyse — Full Stack Developer, Cloud Solutions Specialist, and UI/UX Designer." />
+  <meta property="og:url" content="https://abokor.shop/cv.html" />
+  <meta property="og:image" content="https://abokor.shop/preview_cv.png" />
+  <meta property="og:type" content="profile" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Abokor Keyse — CV | Abokor Tech" />
+  <meta name="twitter:description" content="Full Stack Developer, Cloud Solutions Specialist, and UI/UX Designer." />
+  <meta name="twitter:image" content="https://abokor.shop/preview_cv.png" />
+
+  <link rel="icon" type="image/png" href="./hr.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #FB5800;
+      --primary-light: #FF7528;
+      --primary-dark: #D44700;
+      --violet: #8B5CF6;
+      --cyan: #06B6D4;
+      --pink: #ff4d8d;
+      --green: #22c55e;
+      --bg: #1A1A1A;
+      --bg-soft: #222222;
+      --surface: rgba(34, 34, 34, 0.72);
+      --surface2: rgba(38, 38, 38, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #F5F5F7;
+      --text-muted: #A1A1AA;
+      --text-dim: #71717A;
+      --grad-primary: linear-gradient(135deg, #FB5800 0%, #FF7528 55%, #FFA066 100%);
+      --grad-accent: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+      --grad-hero: linear-gradient(120deg, #FFFFFF, #FFE5D4 40%, #FB5800 85%);
+      --card-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+      --glow: 0 0 35px rgba(251, 88, 0, 0.15);
+      --font-display: 'Space Grotesk', 'Inter', sans-serif;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(139, 92, 246, 0.12), transparent 60%),
+        radial-gradient(800px 500px at -10% 20%, rgba(251, 88, 0, 0.12), transparent 55%),
+        radial-gradient(700px 600px at 50% 120%, rgba(6, 182, 212, 0.06), transparent 60%);
+    }
+    body::after {
+      content: "";
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    }
+
+    h1, h2, h3, .section-title, .exp-title, .project-name, .edu-degree, .cert-name, .lang-name {
+      font-family: var(--font-display);
+      letter-spacing: -0.02em;
+    }
+
+    /* ── BACK NAV ── */
+    .back-nav {
+      position: fixed;
+      top: 20px; left: 24px;
+      z-index: 1000;
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      background: rgba(10, 15, 32, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--primary-light);
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.25s var(--ease-out);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+    .back-nav:hover {
+      background: rgba(251, 88, 0, 0.15);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateX(-3px);
+    }
+
+    /* ── PRINT BTN ── */
+    .print-btn {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      z-index: 999;
+      background: var(--grad-primary);
+      color: #fff;
+      border: none;
+      padding: 14px 26px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      display: flex; align-items: center; gap: 9px;
+      box-shadow: 0 10px 30px -6px rgba(251, 88, 0, 0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .print-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 44px -8px rgba(251, 88, 0, 0.6); }
+
+    /* ── WRAPPER ── */
+    .cv-wrapper { max-width: 980px; margin: 0 auto; padding: 40px 24px 90px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--surface);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 48px 44px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 38px;
+      align-items: center;
+      box-shadow: var(--card-shadow), var(--glow);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 26px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(251, 88, 0, 0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(30%, -30%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-30%, 30%);
+    }
+
+    .avatar {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      background: var(--grad-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      padding: 3px;
+      animation: pulseRing 3s ease-in-out infinite;
+      position: relative;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 3px solid #0b1020;
+    }
+    @keyframes pulseRing {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(251, 88, 0, 0.25), 0 0 0 8px rgba(251, 88, 0, 0.08); }
+      50% { box-shadow: 0 0 0 8px rgba(251, 88, 0, 0.18), 0 0 0 16px rgba(251, 88, 0, 0.04); }
+    }
+
+    .hero-info h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      background: var(--grad-hero);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .hero-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+    .badge-primary { background: rgba(251, 88, 0, 0.12); color: var(--primary-light); border: 1px solid rgba(251, 88, 0, 0.25); }
+    .badge-accent { background: rgba(34, 211, 238, 0.08); color: var(--cyan); border: 1px solid rgba(34, 211, 238, 0.25); }
+    .badge-red { background: rgba(255, 107, 107, 0.08); color: #ff9090; border: 1px solid rgba(255, 107, 107, 0.25); }
+    .badge-green { background: rgba(34, 197, 94, 0.08); color: #6ee7a0; border: 1px solid rgba(34, 197, 94, 0.25); }
+
+    /* ── CONTACT BAR ── */
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 11px 16px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 12.5px;
+      font-weight: 500;
+      transition: all 0.25s var(--ease-out);
+      flex: 1;
+      min-width: 175px;
+      box-shadow: var(--card-shadow);
+    }
+    .contact-item:hover {
+      border-color: var(--primary);
+      color: var(--primary-light);
+      background: rgba(251, 88, 0, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(251, 88, 0, 0.18);
+    }
+    .contact-item i { font-size: 15px; color: var(--primary); width: 16px; text-align: center; }
+
+    /* ── GRID ── */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 22px;
+      align-items: start;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      background: var(--surface);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px 28px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 22px;
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .section:hover {
+      box-shadow: var(--card-shadow), 0 0 34px rgba(251, 88, 0, 0.07);
+      border-color: rgba(251, 88, 0, 0.3);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--grad-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    /* ── SUMMARY ── */
+    .summary-text { color: var(--text-muted); font-size: 14.5px; line-height: 1.85; }
+    .summary-text strong { color: var(--primary-light); }
+
+    /* ── EXPERIENCE ── */
+    .experience-item {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 30px;
+    }
+    .experience-item:last-child { margin-bottom: 0; }
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px;
+      width: 2px;
+      height: calc(100% + 8px);
+      background: linear-gradient(180deg, var(--primary) 0%, transparent 100%);
+      border-radius: 2px;
+    }
+    .experience-item:last-child::before { height: 100%; }
+    .experience-item::after {
+      content: '';
+      position: absolute;
+      left: -4px; top: 8px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 3px rgba(251, 88, 0, 0.25);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .exp-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .exp-company {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .exp-company i { font-size: 11px; }
+    .exp-current {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      background: rgba(34, 211, 238, 0.15);
+      color: var(--cyan);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .exp-duration {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      background: rgba(251, 88, 0, 0.12);
+      color: var(--primary-light);
+      border-radius: 20px;
+      border: 1px solid rgba(251, 88, 0, 0.25);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .exp-achievement {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: rgba(34, 211, 238, 0.07);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 13px;
+      color: var(--cyan);
+    }
+    .exp-achievement i { margin-top: 2px; flex-shrink: 0; }
+    .exp-bullets { list-style: none; }
+    .exp-bullets li {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      padding: 4px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .exp-bullets li::before { content: '▸'; color: var(--primary); flex-shrink: 0; margin-top: 1px; }
+
+    /* ── PROJECT CARD ── */
+    .project-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: all 0.25s var(--ease-out);
+    }
+    .project-card:last-child { margin-bottom: 0; }
+    .project-card:hover {
+      border-color: var(--primary);
+      background: rgba(251, 88, 0, 0.06);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(251, 88, 0, 0.15);
+    }
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .project-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary-light);
+      background: rgba(251, 88, 0, 0.12);
+      border: 1px solid rgba(251, 88, 0, 0.25);
+      border-radius: 20px;
+      padding: 4px 12px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .project-link:hover { background: rgba(251, 88, 0, 0.25); color: #fff; }
+    .project-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      background: rgba(251, 88, 0, 0.08);
+      color: var(--primary-light);
+      border: 1px solid rgba(251, 88, 0, 0.2);
+      border-radius: 8px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: all 0.2s;
+    }
+    .edu-item:hover {
+      border-color: rgba(251, 88, 0, 0.4);
+      background: rgba(251, 88, 0, 0.06);
+    }
+    .edu-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--grad-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .edu-degree {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .edu-school {
+      font-size: 12.5px;
+      color: var(--primary-light);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .edu-year {
+      font-size: 11px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .edu-note {
+      font-size: 11px;
+      color: var(--cyan);
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ── SKILLS ── */
+    .skill-list { display: flex; flex-direction: column; gap: 14px; }
+    .skill-info { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .skill-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .skill-level { font-size: 11px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; }
+    .skill-bar { height: 6px; background: var(--border); border-radius: 6px; overflow: hidden; }
+    .skill-fill {
+      height: 100%;
+      border-radius: 6px;
+      background: var(--grad-primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: fillBar 1.2s var(--ease-out) forwards;
+      animation-play-state: paused;
+    }
+    .section.in-view .skill-fill { animation-play-state: running; }
+    @keyframes fillBar { to { transform: scaleX(1); } }
+
+    /* ── TAGS ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      padding: 6px 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .tag:hover { border-color: var(--primary); color: var(--primary-light); background: rgba(251, 88, 0, 0.1); }
+
+    /* ── CERT ── */
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: all 0.2s;
+      margin-bottom: 10px;
+    }
+    .cert-item:last-child { margin-bottom: 0; }
+    .cert-item:hover { border-color: var(--cyan); background: rgba(34, 211, 238, 0.05); }
+    .cert-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: var(--grad-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .cert-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .cert-issuer { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+    /* ── LANGUAGES ── */
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .lang-item:last-child { border-bottom: none; }
+    .lang-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .lang-level { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+    .lang-dots { display: flex; gap: 5px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot.filled { background: var(--grad-primary); }
+    .dot.empty { background: var(--surface2); border: 1px solid var(--border); }
+
+    /* ── AVAILABILITY ── */
+    .avail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .avail-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+    }
+    .avail-item:hover { border-color: var(--primary); background: rgba(251, 88, 0, 0.08); transform: translateY(-2px); }
+    .avail-item i { font-size: 20px; color: var(--primary); }
+
+    /* ── PERSONAL SKILLS ── */
+    .personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ps-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .ps-item:hover { color: var(--primary-light); border-color: var(--primary); background: rgba(251, 88, 0, 0.08); }
+    .ps-item i { color: var(--primary); font-size: 14px; width: 16px; text-align: center; }
+
+    /* ── REFERENCES ── */
+    .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .ref-card {
+      background: var(--surface2);
+      padding: 15px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .ref-card:hover { border-color: var(--primary); }
+    .ref-name { font-weight: 700; color: var(--text); font-size: 14px; font-family: var(--font-display); }
+    .ref-role { font-size: 11px; color: var(--primary-light); font-weight: 600; margin-bottom: 5px; }
+    .ref-phone { font-size: 12px; color: var(--text-muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding: 36px 28px; }
+      .avatar { margin: 0 auto; }
+      .hero-badges { justify-content: center; }
+      .cv-grid { grid-template-columns: 1fr; }
+      .avail-grid { grid-template-columns: repeat(3, 1fr); }
+      .ref-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; color: #111; }
+      body::before, body::after { display: none; }
+      .print-btn, .back-nav { display: none !important; }
+      .hero, .section, .contact-item, .project-card, .edu-item, .cert-item { background: #f9f9f9; border: 1px solid #ddd; box-shadow: none; backdrop-filter: none; }
+      .hero h1, .section-title, .exp-title, .project-name { -webkit-text-fill-color: #333; color: #333; }
+      .skill-fill { animation-play-state: running !important; transform: scaleX(1) !important; }
+      * { animation: none !important; }
+    }
+
+    /* ── FADE IN ── */
+    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s var(--ease-out) forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .fade-in:nth-child(1) { animation-delay: 0.05s; }
+    .fade-in:nth-child(2) { animation-delay: 0.10s; }
+    .fade-in:nth-child(3) { animation-delay: 0.15s; }
+    .fade-in:nth-child(4) { animation-delay: 0.20s; }
+    .fade-in:nth-child(5) { animation-delay: 0.25s; }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .fade-in { opacity: 1; transform: none; animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ← Back to Portfolio -->
+  <a href="./index.html" class="back-nav">
+    <i class="fas fa-arrow-left"></i> Portfolio
+  </a>
+
+  <button class="print-btn" onclick="window.print()">
+    <i class="fas fa-download"></i> Download / Print
+  </button>
+
+  <div class="cv-wrapper">
+
+    <!-- ═══ HERO ═══ -->
+    <div class="hero fade-in">
+      <div class="avatar">
+        <img src="./hr.png" alt="Abokor Keyse" />
+      </div>
+      <div class="hero-info">
+        <h1>Abokor Keyse</h1>
+        <p class="hero-title">Full Stack Developer &bull; Cloud Solutions &bull; UI/UX Designer</p>
+        <div class="hero-badges">
+          <span class="badge badge-primary"><i class="fas fa-laptop-code" style="margin-right:5px;font-size:10px;"></i>Full Stack &amp; Cloud</span>
+          <span class="badge badge-accent"><i class="fas fa-palette" style="margin-right:5px;font-size:10px;"></i>UI/UX Design</span>
+          <span class="badge badge-green"><i class="fas fa-robot" style="margin-right:5px;font-size:10px;"></i>n8n &amp; AI Automation</span>
+          <span class="badge badge-primary"><i class="fas fa-globe" style="margin-right:5px;font-size:10px;"></i>Remote &amp; On-Site Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CONTACT BAR ═══ -->
+    <div class="contact-bar fade-in">
+      <a class="contact-item" href="mailto:abokor445@hotmail.com">
+        <i class="fas fa-envelope"></i> abokor445@hotmail.com
+      </a>
+      <a class="contact-item" href="tel:+252633009299">
+        <i class="fas fa-phone"></i> +252 63 300 9299
+      </a>
+      <a class="contact-item" href="tel:+252653009299">
+        <i class="fas fa-mobile-alt"></i> +252 65 300 9299
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/abokor-keyse-b35357a3" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a class="contact-item" href="https://x.com/abokorkeyse" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i> @abokorkeyse
+      </a>
+      <a class="contact-item" href="https://github.com/abokorkeyse" target="_blank">
+        <i class="fab fa-github"></i> github.com/abokorkeyse
+      </a>
+      <a class="contact-item" href="https://abokor.shop" target="_blank">
+        <i class="fas fa-globe"></i> abokor.shop
+      </a>
+      <span class="contact-item">
+        <i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland
+      </span>
+    </div>
+
+    <!-- ═══ MAIN GRID ═══ -->
+    <div class="cv-grid">
+
+      <!-- ── LEFT COLUMN ── -->
+      <div>
+
+        <!-- SUMMARY -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon"><i class="fas fa-user"></i></div>
+            <span class="section-title">Professional Summary</span>
+          </div>
+          <p class="summary-text">
+            A results-driven <strong>Customer Care Specialist &amp; IT Professional</strong> with
+            <strong>7+ years</strong> of experience delivering exceptional customer support at
+            <strong>Sogasho</strong>. Recognized as the company's <strong>Best Trainer</strong> —
+            personally trained and mentored <strong>10+ customer care interns</strong>, all of whom
+            are now full-time employees at the organization. Holds a <strong>Bachelor's Degree in
+            Computer Science</strong> from Alpha University and the
+            <strong>Google IT Support Professional Certificate</strong>. Skilled in
+            <strong>AI agent integration</strong>, <strong>n8n workflow automation</strong>,
+            and <strong>network infrastructure</strong>. Passionate about using technology
+            to improve service quality, efficiency, and people development.
+          </p>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon"><i class="fas fa-briefcase"></i></div>
+            <span class="section-title">Work Experience</span>
+          </div>
+
+          <!-- Job 1 – Current -->
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Customer Care Specialist</span>
+              <span class="exp-duration">2018 – Present</span>
+            </div>
+            <div class="exp-company">
+              <i class="fas fa-building"></i> Sogasho
+              <span class="exp-current">Current</span>
+            </div>
+            <div class="exp-achievement">
+              <i class="fas fa-trophy"></i>
+              <span>Increased customer satisfaction rate by <strong>40%</strong> through redesigned response protocols and proactive issue resolution</span>
+            </div>
+            <div class="exp-achievement" style="background:rgba(255,107,107,0.07);border-color:rgba(255,107,107,0.25);color:#ff9090;margin-top:8px;">
+              <i class="fas fa-medal"></i>
+              <span>Recognized as <strong>Best Training &amp; Internship Instructor</strong> — Trained <strong>10+ customer care interns</strong>, all successfully converted to full-time employees at Sogasho</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Handling large volumes of customer interactions professionally and efficiently</li>
+              <li>Resolving customer complaints and technical issues with fast turnaround</li>
+              <li>Using CRM systems to track, manage and follow up on customer cases</li>
+              <li>Designing and delivering structured training programs for new customer care staff</li>
+              <li>Mentoring interns from onboarding through to full employment — <strong>100% conversion rate</strong></li>
+              <li>Improving service quality through feedback analysis and protocol improvements</li>
+              <li>Leveraging AI tools and automation to streamline support workflows</li>
+            </ul>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Sales Representative</span>
+              <span class="exp-duration">1 Year</span>
+            </div>
+            <div class="exp-company">
+              <i class="fas fa-store"></i> Previous Employer
+            </div>
+            <ul class="exp-bullets">
+              <li>Selling products and services to prospective customers</li>
+              <li>Customer follow-up and long-term relationship management</li>
+              <li>Consistently achieving and exceeding monthly sales targets</li>
+              <li>Basic networking and IT system support alongside sales duties</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon" style="background:linear-gradient(135deg,#ff6b6b,#f093fb);"><i class="fas fa-code-branch"></i></div>
+            <span class="section-title">Projects</span>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div>
+                <div class="project-name">🏥 Caafimaad360 — Hospital Management System</div>
+              </div>
+              <a class="project-link" href="https://abokor.shop/hms/" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+            <p class="project-desc">
+              A full-stack, multi-role Hospital Management System built for real-world deployment.
+              Features include patient records (EHR), billing, HR module, lab reporting,
+              pharmacy management, role-based access control, and a responsive dark/light mode UI.
+              Deployed on a live server with full admin control panel.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">PHP</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">HTML/CSS/JS</span>
+              <span class="project-tag">Role-Based Auth</span>
+              <span class="project-tag">EHR</span>
+              <span class="project-tag">Dark Mode</span>
+              <span class="project-tag">Live Server</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div>
+                <div class="project-name">🛒 SomMarket — E-commerce Platform</div>
+              </div>
+              <a class="project-link" href="https://sommarket.shop" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Visit
+              </a>
+            </div>
+            <p class="project-desc">
+              A personal business and portfolio platform with integrated e-commerce features,
+              serving as a hub for digital services and tech projects.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Web Development</span>
+              <span class="project-tag">E-commerce</span>
+              <span class="project-tag">Portfolio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TECHNICAL SKILLS -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon"><i class="fas fa-code"></i></div>
+            <span class="section-title">Technical Skills</span>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Customer Service &amp; CRM Systems</span>
+                <span class="skill-level">Expert</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width:92%;animation-delay:0.1s;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">IT Support &amp; System Troubleshooting</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width:85%;animation-delay:0.15s;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">n8n Workflow Automation</span>
+                <span class="skill-level">Proficient</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width:78%;animation-delay:0.2s;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">AI Agents Usage &amp; Integration</span>
+                <span class="skill-level">Proficient</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width:75%;animation-delay:0.25s;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">ISP Networking (LTE, C/S-Band, Nano Station)</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width:88%;animation-delay:0.3s;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Programming &amp; Web Development</span>
+                <span class="skill-level">Intermediate</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" style="width:62%;animation-delay:0.35s;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROFESSIONAL REFERENCES -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon" style="background:linear-gradient(135deg,#ff9f43,#ff6b6b);"><i class="fas fa-users-cog"></i></div>
+            <span class="section-title">Professional References</span>
+          </div>
+          <div class="ref-grid">
+            <div class="ref-card">
+              <div class="ref-name">Mohamed Ali</div>
+              <div class="ref-role">Ex-Manager Customer Care</div>
+              <div class="ref-phone"><i class="fas fa-phone" style="font-size:10px; margin-right:5px;"></i> +252 63 447350</div>
+            </div>
+            <div class="ref-card">
+              <div class="ref-name">Abdirahman Ali</div>
+              <div class="ref-role">Current Manager</div>
+              <div class="ref-phone"><i class="fas fa-phone" style="font-size:10px; margin-right:5px;"></i> +252 63 4019030</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /LEFT COLUMN -->
+
+      <!-- ── RIGHT COLUMN ── -->
+      <div>
+
+        <!-- EDUCATION -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon" style="background:linear-gradient(135deg,#a78bfa,#6c63ff);"><i class="fas fa-graduation-cap"></i></div>
+            <span class="section-title">Education</span>
+          </div>
+          <div class="edu-item">
+            <div class="edu-icon"><i class="fas fa-university"></i></div>
+            <div>
+              <div class="edu-degree">Bachelor of Science — Computer Science</div>
+              <div class="edu-school">Alpha University, Hargeisa, Somaliland</div>
+              <div class="edu-year"><i class="fas fa-calendar"></i> 2022 – March 10, 2025</div>
+              <div class="edu-note"><i class="fas fa-check-circle"></i> Graduated with Honours</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon" style="background:linear-gradient(135deg,#00d4aa,#0099ff);"><i class="fas fa-certificate"></i></div>
+            <span class="section-title">Certifications</span>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon"><i class="fab fa-google"></i></div>
+            <div>
+              <div class="cert-name">Google IT Support Professional Certificate</div>
+              <div class="cert-issuer">Google × Coursera</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSONAL SKILLS -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon" style="background:linear-gradient(135deg,#ff6b6b,#ff9f43);"><i class="fas fa-star"></i></div>
+            <span class="section-title">Personal Skills</span>
+          </div>
+          <div class="personal-grid">
+            <div class="ps-item"><i class="fas fa-comments"></i> Communication</div>
+            <div class="ps-item"><i class="fas fa-users"></i> Teamwork</div>
+            <div class="ps-item"><i class="fas fa-lightbulb"></i> Problem Solving</div>
+            <div class="ps-item"><i class="fas fa-bolt"></i> Fast Learning</div>
+            <div class="ps-item"><i class="fas fa-shield-alt"></i> Honesty</div>
+            <div class="ps-item"><i class="fas fa-tasks"></i> Responsibility</div>
+          </div>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon" style="background:linear-gradient(135deg,#f093fb,#f5576c);"><i class="fas fa-language"></i></div>
+            <span class="section-title">Languages</span>
+          </div>
+          <div class="lang-item">
+            <div>
+              <div class="lang-name">Somali</div>
+              <div class="lang-level">Native Speaker</div>
+            </div>
+            <div class="lang-dots">
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <div>
+              <div class="lang-name">English</div>
+              <div class="lang-level">Intermediate</div>
+            </div>
+            <div class="lang-dots">
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot empty"></div>
+              <div class="dot empty"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AVAILABILITY -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon" style="background:linear-gradient(135deg,#00d4aa,#00c9a7);"><i class="fas fa-calendar-check"></i></div>
+            <span class="section-title">Availability</span>
+          </div>
+          <div class="avail-grid">
+            <div class="avail-item"><i class="fas fa-clock"></i>Full-time</div>
+            <div class="avail-item"><i class="fas fa-hourglass-half"></i>Part-time</div>
+            <div class="avail-item"><i class="fas fa-wifi"></i>Remote</div>
+          </div>
+        </div>
+
+        <!-- TOOLS & TECH -->
+        <div class="section fade-in">
+          <div class="section-header">
+            <div class="section-icon" style="background:linear-gradient(135deg,#43e97b,#38f9d7);"><i class="fas fa-tools"></i></div>
+            <span class="section-title">Tools &amp; Tech</span>
+          </div>
+          <div class="tags">
+            <span class="tag">n8n</span>
+            <span class="tag">AI Agents</span>
+            <span class="tag">CRM Systems</span>
+            <span class="tag">PHP / MySQL</span>
+            <span class="tag">LTE &amp; Home Routers</span>
+            <span class="tag">C-Band / S-Band</span>
+            <span class="tag">Nano BIN</span>
+            <span class="tag">Router Config</span>
+            <span class="tag">Network Setup</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Google Workspace</span>
+            <span class="tag">Automation</span>
+          </div>
+        </div>
+
+      </div><!-- /RIGHT COLUMN -->
+
+    </div><!-- /cv-grid -->
+  </div><!-- /cv-wrapper -->
+
+  <script>
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+    if (prefersReducedMotion) {
+      document.querySelectorAll('.fade-in').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+    }
+  </script>
+</body>
+</html>
