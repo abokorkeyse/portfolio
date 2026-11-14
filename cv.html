@@ -113,25 +113,41 @@
       transform: translateX(-3px);
     }
 
-    /* ── PRINT BTN ── */
-    .print-btn {
+    /* ── ACTIONS FIXED ── */
+    .cv-actions-fixed {
       position: fixed;
       bottom: 32px; right: 32px;
       z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .print-btn {
       background: var(--grad-primary);
       color: #fff;
       border: none;
-      padding: 14px 26px;
+      padding: 12px 22px;
       border-radius: 50px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       font-family: 'Inter', sans-serif;
-      display: flex; align-items: center; gap: 9px;
+      display: inline-flex; align-items: center; gap: 8px;
       box-shadow: 0 10px 30px -6px rgba(251, 88, 0, 0.45);
       transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
     }
-    .print-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 44px -8px rgba(251, 88, 0, 0.6); }
+    .print-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 44px -8px rgba(251, 88, 0, 0.6); color: #fff; }
+    .print-btn.print-action-btn {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.5);
+    }
+    .print-btn.print-action-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
 
     /* ── WRAPPER ── */
     .cv-wrapper { max-width: 980px; margin: 0 auto; padding: 40px 24px 90px; }
@@ -670,13 +686,15 @@
       .cv-grid { grid-template-columns: 1fr; }
       .avail-grid { grid-template-columns: repeat(3, 1fr); }
       .ref-grid { grid-template-columns: 1fr; }
+      .cv-actions-fixed { bottom: 16px; right: 16px; gap: 8px; }
+      .print-btn { padding: 9px 15px; font-size: 12px; }
     }
 
     /* ── PRINT ── */
     @media print {
       body { background: #fff; color: #111; }
       body::before, body::after { display: none; }
-      .print-btn, .back-nav { display: none !important; }
+      .cv-actions-fixed, .print-btn, .back-nav { display: none !important; }
       .hero, .section, .contact-item, .project-card, .edu-item, .cert-item { background: #f9f9f9; border: 1px solid #ddd; box-shadow: none; backdrop-filter: none; }
       .hero h1, .section-title, .exp-title, .project-name { -webkit-text-fill-color: #333; color: #333; }
       .skill-fill { animation-play-state: running !important; transform: scaleX(1) !important; }
@@ -711,9 +729,14 @@
     <i class="fas fa-arrow-left"></i> Portfolio
   </a>
 
-  <button class="print-btn" onclick="window.print()">
-    <i class="fas fa-download"></i> Download / Print
-  </button>
+  <div class="cv-actions-fixed">
+    <a href="./Abokor_Keyse_CV.pdf" download="Abokor_Keyse_CV.pdf" class="print-btn" title="Download Official PDF">
+      <i class="fas fa-file-pdf"></i> Download PDF
+    </a>
+    <button class="print-btn print-action-btn" onclick="window.print()" title="Print CV">
+      <i class="fas fa-print"></i> Print
+    </button>
+  </div>
 
   <div class="cv-wrapper">
 

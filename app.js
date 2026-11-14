@@ -1061,33 +1061,9 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.innerText = translations[currentLang].form_sending;
             btn.disabled = true;
 
-            // Try direct submission to improved local send_mail.php first
-            fetch('./send_mail.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({ name, email, message: msg })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Local mail failed, attempting fallback...');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    window.showToast(translations[currentLang].form_success, 'success');
-                    contactForm.reset();
-                } else {
-                    throw new Error(data.error || 'Unknown error');
-                }
-            })
-            .catch(error => {
-                console.warn('Local mail failed. Using FormSubmit.co fallback. Error:', error);
+            const isStaticHost = window.location.hostname.endsWith('github.io') || window.location.protocol === 'file:';
 
-                // Fallback to FormSubmit.co
+            const submitFallback = () => {
                 fetch('https://formsubmit.co/ajax/abokor445@hotmail.com', {
                     method: 'POST',
                     headers: {
@@ -1095,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Accept': 'application/json'
                     },
                     body: JSON.stringify({
-                        _subject: "Farriin Cusub oo Portfolio-gaaga ah",
+                        _subject: "Farriin Cusub oo Portfolio-gaaga ah (Abokor Tech)",
                         Magaca: name,
                         Email: email,
                         Farriinta: msg
@@ -1119,16 +1095,53 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Contact Form Final Error:', err);
                     window.showToast(
                         currentLang === 'so'
-                            ? "Waan ka xunnahay, cilad ayaa dhacday adigoo fariinta diraya. Fadlan isku day markale."
-                            : "Sorry, an error occurred while sending your message. Please try again.",
+                            ? "Waan ka xunnahay, cilad ayaa dhacday adigoo fariinta diraya. Fadlan isku day markale ama WhatsApp nala soo xiriir."
+                            : "Sorry, an error occurred while sending your message. Please try again or reach out on WhatsApp.",
                         'error'
                     );
+                })
+                .finally(() => {
+                    btn.innerText = translations[currentLang].form_send;
+                    btn.disabled = false;
                 });
-            })
-            .finally(() => {
-                btn.innerText = translations[currentLang].form_send;
-                btn.disabled = false;
-            });
+            };
+
+            if (isStaticHost) {
+                // On static hosting (like GitHub Pages), send directly via FormSubmit.co
+                submitFallback();
+            } else {
+                // On dynamic PHP host, try direct submission to local send_mail.php first
+                fetch('./send_mail.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, message: msg })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Local mail failed, attempting fallback...');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        window.showToast(translations[currentLang].form_success, 'success');
+                        contactForm.reset();
+                    } else {
+                        throw new Error(data.error || 'Unknown error');
+                    }
+                })
+                .catch(error => {
+                    console.warn('Local mail failed. Using FormSubmit.co fallback. Error:', error);
+                    submitFallback();
+                })
+                .finally(() => {
+                    btn.innerText = translations[currentLang].form_send;
+                    btn.disabled = false;
+                });
+            }
         });
     }
 

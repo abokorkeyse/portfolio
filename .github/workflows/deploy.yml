@@ -32,8 +32,20 @@ jobs:
           test -f index.html || { echo "index.html missing!"; exit 1; }
           test -f style.css || { echo "style.css missing!"; exit 1; }
           test -f app.js || { echo "app.js missing!"; exit 1; }
+          test -f cv.html || { echo "cv.html missing!"; exit 1; }
+          test -f privacy.html || { echo "privacy.html missing!"; exit 1; }
+          test -f terms.html || { echo "terms.html missing!"; exit 1; }
+          test -f 404.html || { echo "404.html missing!"; exit 1; }
           test -f manifest.webmanifest || { echo "manifest missing!"; exit 1; }
+          test -f sw.js || { echo "sw.js missing!"; exit 1; }
           echo "All core assets verified successfully."
+
+      - name: Syntax & Lint Validation
+        run: |
+          echo "Validating JavaScript syntax..."
+          node --check app.js
+          node --check sw.js
+          echo "Syntax verification passed."
 
   # CD: Deploy to GitHub Pages
   deploy:
