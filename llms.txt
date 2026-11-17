@@ -7,6 +7,8 @@ Abokor builds web applications and business systems, cloud solutions, ERP/CRM pl
 ## Main pages
 
 - [Portfolio](https://abokor.shop/): About, services, skills, projects, experience, and contact information.
+- [Portfolio in Somali](https://abokor.shop/so/): Somali-language portfolio.
+- [Portfolio in English](https://abokor.shop/en/): English-language portfolio.
 - [Curriculum Vitae](https://abokor.shop/cv.html): Education, experience, skills, and contact details.
 - [n8n Automation](https://abokor.shop/n8n-automation): Automation services and information.
 - [Privacy Policy](https://abokor.shop/privacy): Privacy and data-handling information.

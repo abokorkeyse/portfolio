@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register Service Worker (PWA) — safe no-op when not supported
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
+            navigator.serviceWorker.register(new URL('../sw.js', location.href))
                 .catch(err => console.warn('SW registration skipped:', err.message));
         });
     }
@@ -447,7 +447,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Current State Settings
     const langToggle = document.getElementById('langToggle');
-    let currentLang = localStorage.getItem('lang') || 'so';
+    const routeLang = location.pathname.match(/(?:^|\/)(so|en)\/?$/i)?.[1]?.toLowerCase();
+    let currentLang = routeLang || localStorage.getItem('lang') || 'so';
+
+    function getLanguagePageUrl(lang) {
+        const localizedPath = location.pathname.match(/^(.*\/)(?:so|en)\/?$/i);
+        const basePath = localizedPath
+            ? localizedPath[1]
+            : location.pathname.replace(/index\.html$/i, '').replace(/[^/]*$/, '');
+        return new URL(`${basePath}${lang}/`, location.origin);
+    }
 
     // Typed.js Dynamic Typing Animation with reliable fallback
     function updateTypedAnimation(lang) {
@@ -523,7 +532,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langToggle) {
         langToggle.addEventListener('click', () => {
             const newLang = currentLang === 'so' ? 'en' : 'so';
-            updateLanguage(newLang);
+            localStorage.setItem('lang', newLang);
+            location.assign(getLanguagePageUrl(newLang));
         });
     }
 
@@ -1111,7 +1121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitFallback();
             } else {
                 // On dynamic PHP host, try direct submission to local send_mail.php first
-                fetch('./send_mail.php', {
+                fetch(new URL('../send_mail.php', location.href), {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

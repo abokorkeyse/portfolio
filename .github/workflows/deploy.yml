@@ -26,6 +26,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Generate Localized Portfolio Pages
+        run: node scripts/generate-localized-pages.mjs
+
       - name: Check Essential Files
         run: |
           echo "Verifying production assets..."
@@ -38,6 +41,11 @@ jobs:
           test -f 404.html || { echo "404.html missing!"; exit 1; }
           test -f manifest.webmanifest || { echo "manifest missing!"; exit 1; }
           test -f sw.js || { echo "sw.js missing!"; exit 1; }
+          test -f robots.txt || { echo "robots.txt missing!"; exit 1; }
+          test -f sitemap.xml || { echo "sitemap.xml missing!"; exit 1; }
+          test -f llms.txt || { echo "llms.txt missing!"; exit 1; }
+          test -f so/index.html || { echo "Somali portfolio page missing!"; exit 1; }
+          test -f en/index.html || { echo "English portfolio page missing!"; exit 1; }
           echo "All core assets verified successfully."
 
       - name: Syntax & Lint Validation
@@ -45,7 +53,99 @@ jobs:
           echo "Validating JavaScript syntax..."
           node --check app.js
           node --check sw.js
+          node --check scripts/generate-localized-pages.mjs
           echo "Syntax verification passed."
+
+      - name: Validate SEO Assets
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse
+          from xml.etree import ElementTree
+
+          base_url = "https://abokor.shop"
+          sitemap = ElementTree.parse("sitemap.xml").getroot()
+          namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+          urls = [
+              element.text
+              for element in sitemap.findall(f"{namespace}url/{namespace}loc")
+          ]
+          if not urls or len(urls) != len(set(urls)):
+              raise SystemExit("Sitemap must contain unique URLs.")
+
+          class SEOParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.canonicals = []
+                  self.alternates = []
+                  self.json_ld = []
+                  self._script_parts = None
+
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == "link" and attrs.get("rel", "").lower() == "canonical":
+                      self.canonicals.append(attrs.get("href"))
+                  if tag == "link" and attrs.get("rel", "").lower() == "alternate":
+                      self.alternates.append(
+                          (attrs.get("hreflang"), attrs.get("href"))
+                      )
+                  if tag == "script" and attrs.get("type") == "application/ld+json":
+                      self._script_parts = []
+
+              def handle_data(self, data):
+                  if self._script_parts is not None:
+                      self._script_parts.append(data)
+
+              def handle_endtag(self, tag):
+                  if tag == "script" and self._script_parts is not None:
+                      self.json_ld.append("".join(self._script_parts))
+                      self._script_parts = None
+
+          for url in urls:
+              if not url.startswith(base_url):
+                  raise SystemExit(f"Unexpected sitemap domain: {url}")
+              relative = urlparse(url).path.lstrip("/") or "index.html"
+              candidates = [Path(relative)]
+              if relative.endswith("/"):
+                  candidates.append(Path(relative) / "index.html")
+              elif not Path(relative).suffix:
+                  candidates.append(Path(relative + ".html"))
+                  candidates.append(Path(relative) / "index.html")
+              page = next((candidate for candidate in candidates if candidate.is_file()), None)
+              if page is None:
+                  raise SystemExit(f"Sitemap URL has no matching page: {url}")
+
+              parser = SEOParser()
+              parser.feed(page.read_text(encoding="utf-8"))
+              if parser.canonicals != [url]:
+                  raise SystemExit(f"{page} must have one matching canonical URL.")
+              if url in (f"{base_url}/", f"{base_url}/so/", f"{base_url}/en/"):
+                  expected_alternates = {
+                      ("so", f"{base_url}/so/"),
+                      ("en", f"{base_url}/en/"),
+                      ("x-default", f"{base_url}/"),
+                  }
+                  if not expected_alternates.issubset(set(parser.alternates)):
+                      raise SystemExit(f"{page} must have reciprocal language alternates.")
+              for block in parser.json_ld:
+                  json.loads(block)
+
+          robots = Path("robots.txt").read_text(encoding="utf-8")
+          if f"Sitemap: {base_url}/sitemap.xml" not in robots:
+              raise SystemExit("robots.txt must reference the sitemap.")
+          for crawler in ("OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"):
+              if not re.search(
+                  rf"User-agent:\s*{re.escape(crawler)}\s*\nAllow:\s*/",
+                  robots,
+                  re.IGNORECASE,
+              ):
+                  raise SystemExit(f"robots.txt must allow {crawler}.")
+          Path("llms.txt").read_text(encoding="utf-8")
+          print(f"Validated {len(urls)} sitemap URLs, canonical tags, JSON-LD and crawler rules.")
+          PY
 
   # CD: Deploy to GitHub Pages
   deploy:
@@ -58,6 +158,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Generate Localized Portfolio Pages
+        run: node scripts/generate-localized-pages.mjs
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5

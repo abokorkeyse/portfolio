@@ -6,6 +6,10 @@ node_modules/
 # Review / Audit workspace
 portfolio-review/
 
+# Generated localized portfolio pages
+/so/
+/en/
+
 # IDE / Editor files
 .vscode/
 .idea/

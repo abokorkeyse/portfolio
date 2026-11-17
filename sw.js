@@ -3,18 +3,20 @@
    Caches core assets for offline / faster repeat visits.
    ============================================================ */
 
-const CACHE_NAME = 'abokor-tech-v5-1-0';
+const CACHE_NAME = 'abokor-tech-v5-2-0';
 
 const CORE_ASSETS = [
   './',
   './index.html',
+  './so/',
+  './en/',
   './cv.html',
   './privacy.html',
   './terms.html',
   './404.html',
   './style.css?v=5.0.0',
   './legal.css?v=1.0.6',
-  './app.js?v=5.0.0',
+  './app.js?v=5.1.0',
   './manifest.webmanifest',
   './hr.png',
   './preview_hero.png',
