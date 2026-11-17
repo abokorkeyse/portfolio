@@ -44,6 +44,7 @@ jobs:
           test -f robots.txt || { echo "robots.txt missing!"; exit 1; }
           test -f sitemap.xml || { echo "sitemap.xml missing!"; exit 1; }
           test -f llms.txt || { echo "llms.txt missing!"; exit 1; }
+          test -f CNAME || { echo "CNAME missing!"; exit 1; }
           test -f so/index.html || { echo "Somali portfolio page missing!"; exit 1; }
           test -f en/index.html || { echo "English portfolio page missing!"; exit 1; }
           echo "All core assets verified successfully."
