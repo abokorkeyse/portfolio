@@ -1,0 +1,30 @@
+# Abokor Tech
+
+> The official portfolio of Abokor Keyse, a Full-Stack Developer and AI Automation Specialist based in Hargeisa, Somaliland. The site is available in Somali and English.
+
+Abokor builds web applications and business systems, cloud solutions, ERP/CRM platforms, n8n and AI automations, and user interfaces.
+
+## Main pages
+
+- [Portfolio](https://abokor.shop/): About, services, skills, projects, experience, and contact information.
+- [Curriculum Vitae](https://abokor.shop/cv.html): Education, experience, skills, and contact details.
+- [n8n Automation](https://abokor.shop/n8n-automation): Automation services and information.
+- [Privacy Policy](https://abokor.shop/privacy): Privacy and data-handling information.
+- [Terms of Service](https://abokor.shop/terms): Service terms.
+- [Sitemap](https://abokor.shop/sitemap.xml): Canonical site URLs.
+
+## Selected projects
+
+- School Management System: School administration with student, teacher, and admin tools.
+- AgentWorks AI: AI-assisted customer support and booking automation.
+- BloodSave: Blood donor and hospital coordination platform.
+- SO! Gasho ISP CRM: Subscriber, billing, and ISP management system.
+- Karti POS: Point-of-sale and inventory management.
+- Hospital Management System: Patient, pharmacy, appointment, and billing management.
+
+## Contact
+
+- Email: abokor445@hotmail.com
+- WhatsApp: [+252 633 009 299](https://wa.me/252633009299)
+
+For current information, refer to the linked portfolio and CV pages.
