@@ -1,9 +1,9 @@
 /* ============================================================
-   Abokor Tech Portfolio — Service Worker v5.1.0
+   Abokor Tech Portfolio — Service Worker v5.3.0
    Caches core assets for offline / faster repeat visits.
    ============================================================ */
 
-const CACHE_NAME = 'abokor-tech-v5-2-0';
+const CACHE_NAME = 'abokor-tech-v5-3-0';
 
 const CORE_ASSETS = [
   './',
@@ -13,6 +13,7 @@ const CORE_ASSETS = [
   './cv.html',
   './privacy.html',
   './terms.html',
+  './security.html',
   './404.html',
   './style.css?v=5.0.0',
   './legal.css?v=1.0.6',

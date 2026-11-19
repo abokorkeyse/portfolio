@@ -80,6 +80,10 @@ $name = isset($data['name']) ? trim(htmlspecialchars(strip_tags($data['name']), 
 $email = isset($data['email']) ? filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL) : '';
 $message = isset($data['message']) ? trim(htmlspecialchars(strip_tags($data['message']), ENT_QUOTES, 'UTF-8')) : '';
 
+// Strip newlines to prevent email header injection (CRLF)
+$name = str_replace(["\r", "\n", "%0a", "%0d"], '', $name);
+$email = str_replace(["\r", "\n", "%0a", "%0d"], '', $email);
+
 // Validation
 if (empty($name) || empty($email) || empty($message)) {
     http_response_code(400);
@@ -133,7 +137,7 @@ $body = "
 ";
 
 // Headers
-$server_domain = $_SERVER['SERVER_NAME'] ?: 'abokorkeyse.sommarket.shop';
+$server_domain = !empty($_SERVER['SERVER_NAME']) ? preg_replace('/[^a-zA-Z0-9.-]/', '', $_SERVER['SERVER_NAME']) : 'abokor.shop';
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
 $headers .= "From: Portfolio Contact <noreply@" . $server_domain . ">" . "\r\n";

@@ -1,0 +1,5 @@
+Contact: mailto:abokor445@hotmail.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: so, en
+Policy: https://abokor.shop/security
+Canonical: https://abokor.shop/.well-known/security.txt

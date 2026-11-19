@@ -1412,7 +1412,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (type === 'success') iconClass = 'fa-check-circle';
         if (type === 'error') iconClass = 'fa-exclamation-circle';
 
-        toast.innerHTML = `<i class="fas ${iconClass} toast-icon"></i><span class="toast-msg">${message}</span>`;
+        const icon = document.createElement('i');
+        icon.className = `fas ${iconClass} toast-icon`;
+        const span = document.createElement('span');
+        span.className = 'toast-msg';
+        span.textContent = message;
+
+        toast.appendChild(icon);
+        toast.appendChild(span);
         container.appendChild(toast);
 
         setTimeout(() => {
@@ -1574,20 +1581,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalDesc) modalDesc.textContent = desc;
 
         if (modalFeatures) {
-            modalFeatures.innerHTML = `
-                <h4>${currentLang === 'so' ? 'Astaamaha Muhiimka ah:' : 'Key Features:'}</h4>
-                <ul>
-                    ${features.map(f => `<li>${f}</li>`).join('')}
-                </ul>
-            `;
+            modalFeatures.textContent = '';
+            const h4 = document.createElement('h4');
+            h4.textContent = currentLang === 'so' ? 'Astaamaha Muhiimka ah:' : 'Key Features:';
+            modalFeatures.appendChild(h4);
+            const ul = document.createElement('ul');
+            features.forEach(f => {
+                const li = document.createElement('li');
+                li.textContent = f;
+                ul.appendChild(li);
+            });
+            modalFeatures.appendChild(ul);
         }
 
         if (modalActions) {
-            modalActions.innerHTML = actions.map(act => `
-                <a href="${act.url}" target="_blank" rel="noopener noreferrer" class="btn ${act.btnClass || 'btn-primary'}">
-                    <i class="${act.icon}"></i> ${act.label}
-                </a>
-            `).join('');
+            modalActions.textContent = '';
+            actions.forEach(act => {
+                const safeUrl = (typeof act.url === 'string' && /^(https?:\/\/|\/)/i.test(act.url)) ? act.url : '#';
+                const a = document.createElement('a');
+                a.href = safeUrl;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.className = `btn ${act.btnClass || 'btn-primary'}`;
+                if (act.icon) {
+                    const icon = document.createElement('i');
+                    icon.className = act.icon;
+                    a.appendChild(icon);
+                    a.appendChild(document.createTextNode(' '));
+                }
+                a.appendChild(document.createTextNode(act.label || ''));
+                modalActions.appendChild(a);
+            });
         }
 
         projectModal.classList.add('active');

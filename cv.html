@@ -775,7 +775,7 @@
     <a href="./Abokor_Keyse_CV.pdf" download="Abokor_Keyse_CV.pdf" class="print-btn" title="Download Official PDF">
       <i class="fas fa-file-pdf"></i> Download PDF
     </a>
-    <button class="print-btn print-action-btn" onclick="window.print()" title="Print CV">
+    <button id="printCvBtn" class="print-btn print-action-btn" title="Print CV">
       <i class="fas fa-print"></i> Print
     </button>
   </div>
@@ -810,16 +810,16 @@
       <a class="contact-item" href="tel:+252653009299">
         <i class="fas fa-mobile-alt"></i> +252 65 300 9299
       </a>
-      <a class="contact-item" href="https://linkedin.com/in/abokor-keyse-b35357a3" target="_blank">
+      <a class="contact-item" href="https://linkedin.com/in/abokor-keyse-b35357a3" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-linkedin"></i> LinkedIn
       </a>
-      <a class="contact-item" href="https://x.com/abokorkeyse" target="_blank">
+      <a class="contact-item" href="https://x.com/abokorkeyse" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-x-twitter"></i> @abokorkeyse
       </a>
-      <a class="contact-item" href="https://github.com/abokorkeyse" target="_blank">
+      <a class="contact-item" href="https://github.com/abokorkeyse" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-github"></i> github.com/abokorkeyse
       </a>
-      <a class="contact-item" href="https://abokor.shop" target="_blank">
+      <a class="contact-item" href="https://abokor.shop" target="_blank" rel="noopener noreferrer">
         <i class="fas fa-globe"></i> abokor.shop
       </a>
       <span class="contact-item">
@@ -919,7 +919,7 @@
               <div>
                 <div class="project-name">🏥 Caafimaad360 — Hospital Management System</div>
               </div>
-              <a class="project-link" href="https://abokor.shop/hms/" target="_blank">
+              <a class="project-link" href="https://abokor.shop/hms/" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> Live Demo
               </a>
             </div>
@@ -945,7 +945,7 @@
               <div>
                 <div class="project-name">🛒 SomMarket — E-commerce Platform</div>
               </div>
-              <a class="project-link" href="https://sommarket.shop" target="_blank">
+              <a class="project-link" href="https://sommarket.shop" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-external-link-alt"></i> Visit
               </a>
             </div>
@@ -1173,6 +1173,10 @@
       });
     }, { threshold: 0.2 });
     document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+    document.getElementById('printCvBtn')?.addEventListener('click', () => {
+      window.print();
+    });
 
     if (prefersReducedMotion) {
       document.querySelectorAll('.fade-in').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
